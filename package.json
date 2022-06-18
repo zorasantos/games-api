@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "dev": "tsnd --inspect -r tsconfig-paths/register --exit-child --transpile-only --respawn --ignore-watch node_modules src/shared/infra/http/server.ts"
+  },
   "dependencies": {
     "express": "^4.17.3",
     "express-async-errors": "^3.1.1",
