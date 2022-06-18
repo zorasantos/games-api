@@ -15,7 +15,8 @@
     "pg": "^8.7.3",
     "prisma": "^3.15.2",
     "swagger-ui-express": "^4.3.0",
-    "tsyringe": "^4.6.0"
+    "tsyringe": "^4.6.0",
+    "winston": "^3.7.2"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
