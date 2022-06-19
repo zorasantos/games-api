@@ -12,11 +12,51 @@ jobs:
       matrix:
         node-version: [16.x]
 
+    services:
+      postgres:
+        image: postgres:14
+        env:
+          POSTGRES_USER: games
+          POSTGRES_PASSWORD: games
+          POSTGRES_DB: games_api_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'yarn'
+
+    - name: Install dependencies
+      run: yarn --frozen-lockfile
+
+    # - name: Setup Database
+    #   run: |
+    #     npx knex migrate:latest
+    #   env:
+    #     NODE_ENV: test
+    #     DB_TEST_NAME: health_api_test
+    #     DB_USER: postgres
+    #     DB_PASSWORD: postgres
+
+    - name: Run eslint
+      run: yarn lint
+
+    - name: Run test
+      run: yarn test
+
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       - name: SonarCloud Scan
@@ -24,24 +64,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-  database:
-    name: DataBase
-    image: postgres:14
-    env:
-      POSTGRES_USER: games
-      POSTGRES_PASSWORD: games
-      POSTGRES_DB: games_api
-    ports:
-      - 5432:5432
-    options: >-
-      --health-cmd pg_isready
-      --health-interval 10s
-      --health-timeout 5s
-      --health-retries 5
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'yarn'
