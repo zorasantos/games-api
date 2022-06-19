@@ -52,6 +52,12 @@ jobs:
     - name: Run test
       run: yarn test
 
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.github_token }}
+        path-to-lcov: ${{ github.workspace }}/coverage/lcov.info
+
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
