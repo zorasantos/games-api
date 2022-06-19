@@ -25,7 +25,9 @@
     "camelcase": "off",
     "import/no-unresolved": "error",
     "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-unsafe-member-access": "off",
     "@typescript-eslint/explicit-module-boundary-types": ["error"],
+    "@typescript-eslint/no-explicit-any": "off",
     // "no-use-before-define": ["off", { "functions": true, "classes": true, "variables": true }],
     "@typescript-eslint/naming-convention": [
       "error",
