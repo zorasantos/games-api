@@ -25,6 +25,9 @@ jobs:
     - name: Run eslint
       run: yarn lint
 
+    - name: Run test
+      run: yarn test
+
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest

@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-
 import winston from 'winston';
 
 const levels = {
@@ -30,8 +27,7 @@ winston.addColors(colors);
 const format = winston.format.combine(
   winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss:ms' }),
   winston.format.colorize({ all: true }),
-  // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-  winston.format.printf((info) => `${info.timestamp} ${info.level}: ${info.message}`)
+  winston.format.printf((info) => `${info.timestamp as string} ${info.level}: ${info.message}`)
 );
 
 const transports = [new winston.transports.Console()];

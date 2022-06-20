@@ -1,14 +1,11 @@
 import express from 'express';
 
-import Logger from '@shared/logger';
+import { router } from './routes';
 
 const app = express();
 app.disable('x-powered-by');
 
 app.use(express.json());
+app.use(router);
 
-app.get('/list-games', (_req, res) => {
-  Logger.info('Entrou no list-games');
-  res.send({ name: 'pac-man', year: '1981' });
-});
 app.listen(3000);

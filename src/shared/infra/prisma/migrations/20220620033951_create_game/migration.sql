@@ -1,8 +1,8 @@
 -- CreateTable
-CREATE TABLE "Games" (
+CREATE TABLE "games" (
     "id" TEXT NOT NULL,
     "nome" TEXT NOT NULL,
-    "criador" TEXT NOT NULL,
+    "nomeCriador" TEXT NOT NULL,
     "genero" TEXT NOT NULL,
     "plataforma" TEXT NOT NULL,
     "estudio" TEXT NOT NULL,
@@ -10,5 +10,5 @@ CREATE TABLE "Games" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "Games_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "games_pkey" PRIMARY KEY ("id")
 );
