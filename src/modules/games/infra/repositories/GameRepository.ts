@@ -23,6 +23,14 @@ class GameRepository implements IGameRepository {
       }
     });
   }
+
+  async list(): Promise<Game[]> {
+    Logger.info('Entrou no método list no GameRepository');
+
+    Logger.info('Invocou o método findMany do prisma client no GameRepository');
+    const games = await prismaClient.games.findMany();
+    return games as Game[];
+  }
 }
 
 export { GameRepository };
