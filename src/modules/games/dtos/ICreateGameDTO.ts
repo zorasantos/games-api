@@ -1,11 +1,12 @@
 interface ICreateGameDTO {
   id?: string;
-  nome: string;
-  nomeCriador: string;
-  genero: string;
-  plataforma: string;
-  estudio: string;
-  dataLancamento: Date;
+  name: string;
+  designer: string;
+  genre: string;
+  platform: string;
+  developer: string;
+  releaseData: string;
+  mode: string;
 }
 
 export { ICreateGameDTO };

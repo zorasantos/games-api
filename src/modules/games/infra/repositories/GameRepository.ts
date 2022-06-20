@@ -7,19 +7,21 @@ import Logger from '@shared/logger';
 import { Game } from '../entities/Game';
 
 class GameRepository implements IGameRepository {
-  async create({ nome, nomeCriador, genero, dataLancamento, estudio, plataforma }: Game): Promise<void> {
-    const game = await prismaClient.games.create({
+  async create({ name, designer, genre, platform, developer, releaseData, mode }: Game): Promise<void> {
+    Logger.info('Entrou no método create no GameRepository');
+
+    Logger.info('Invocou o método create do prisma client no GameRepository');
+    await prismaClient.games.create({
       data: {
-        nome,
-        nomeCriador,
-        genero,
-        dataLancamento,
-        estudio,
-        plataforma
+        name,
+        designer,
+        genre,
+        platform,
+        developer,
+        releaseData,
+        mode
       }
     });
-
-    Logger.info(game);
   }
 }
 

@@ -1,8 +1,8 @@
 import { Router } from 'express';
 
-import { createGameFactory } from '@modules/games/useCases/createGame/GameFactory';
+import { CreateGameController } from '@modules/games/useCases/createGame/CreateGameController';
 
-const gameFactor = createGameFactory();
+const gameFactor = new CreateGameController();
 const gameRoutes = Router();
 
 gameRoutes.post('/', gameFactor.handle);

@@ -10,12 +10,13 @@ datasource db {
 
 model Games {
   id                String      @id @default(uuid())
-  nome              String
-  nomeCriador       String
-  genero            String
-  plataforma        String
-  estudio           String
-  dataLancamento    DateTime  @db.Date
+  name              String
+  designer          String
+  genre             String
+  platform          String
+  developer         String
+  releaseData       String
+  mode              String
   createdAt         DateTime  @default(now())
   updatedAt         DateTime  @updatedAt
 

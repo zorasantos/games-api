@@ -1,25 +1,35 @@
+import { inject, injectable } from 'tsyringe';
+
 import { ICreateGameDTO } from '@modules/games/dtos/ICreateGameDTO';
 import { IGameRepository } from '@modules/games/repositories/IGameRepository';
 import Logger from '@shared/logger';
 
+@injectable()
 class CreateGameUseCase {
-  constructor(private gameRepository: IGameRepository) {}
+  constructor(
+    @inject('GameRepository')
+    private gameRepository: IGameRepository
+  ) {}
   async execute({
-    nome,
-    nomeCriador,
-    dataLancamento,
-    genero,
-    estudio,
-    plataforma
+    name,
+    designer,
+    genre,
+    platform,
+    developer,
+    releaseData,
+    mode
   }: ICreateGameDTO): Promise<void> {
-    Logger.info('Entro método execute dentro do CreateGameUseCase');
+    Logger.info('Entrou no método execute dentro do CreateGameUseCase');
+
+    Logger.info('Invocou o método create dentro do CreateGameUseCase');
     await this.gameRepository.create({
-      nome,
-      nomeCriador,
-      dataLancamento,
-      genero,
-      estudio,
-      plataforma
+      name,
+      designer,
+      genre,
+      platform,
+      developer,
+      releaseData,
+      mode
     });
   }
 }
