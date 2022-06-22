@@ -60,3 +60,12 @@ jobs:
     needs: [build, sonarcloud, deploy-dev]
     steps:
       - run: echo "Deployment staging"
+
+  deploy-production:
+    name: Deploy Production
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+    needs: [build, sonarcloud, deploy-dev, deploy-staging]
+    steps:
+      - run: echo "Deployment production"
