@@ -75,7 +75,7 @@
         "checksVoidReturn": false
       }
     ],
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["**/*.spec.js"] }]
+    "import/no-extraneous-dependencies": "off"
   },
   "settings": {
     "import/resolver": {
