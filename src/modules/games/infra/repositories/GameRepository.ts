@@ -1,7 +1,7 @@
 import { IGameRepository } from '@modules/games/repositories/IGameRepository';
-import prismaClient from '@shared/infra/prisma/prismaClient';
 import Logger from '@shared/logger';
 
+import prismaClient from '../../../../../prisma/prismaClient';
 import { Game } from '../entities/Game';
 
 class GameRepository implements IGameRepository {
