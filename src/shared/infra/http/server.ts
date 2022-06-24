@@ -8,6 +8,8 @@ import { router } from './routes';
 
 import '@shared/container/index';
 
+const port = process.env.PORT || 3000;
+
 const app = express();
 app.disable('x-powered-by');
 
@@ -23,11 +25,8 @@ app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
 
   if (err instanceof CelebrateError) {
     const errorBody = err.details.get('body');
-    const {
-      details: [errorDetails]
-    } = errorBody;
     return res.status(400).json({
-      message: errorDetails.message
+      message: errorBody?.details[0].message
     });
   }
 
@@ -37,4 +36,4 @@ app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
   });
 });
 
-app.listen(3000);
+app.listen(port);
