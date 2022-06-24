@@ -7,7 +7,11 @@ import { CreateGameController } from './CreateGameController';
 jest.mock('./CreateGameUseCase.ts');
 
 describe('CreateGameController', () => {
-  it('should be able create a new register game', async () => {
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
+
+  it('should be able create a new register game controller successfully', async () => {
     const createGameController = new CreateGameController();
 
     const req: Request = getMockReq();
