@@ -3,6 +3,7 @@
     "target": "es2017",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "strictNullChecks": true,
     "module": "commonjs",
     "baseUrl": "./src",
     "paths": {

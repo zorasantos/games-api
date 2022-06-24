@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-
 import { IGameRepository } from '@modules/games/repositories/IGameRepository';
-import { prismaClient } from '@shared/infra/prisma/prismaClient';
+import prismaClient from '@shared/infra/prisma/prismaClient';
 import Logger from '@shared/logger';
 
 import { Game } from '../entities/Game';
