@@ -19,8 +19,8 @@
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
     "start": "node ./dist/shared/infra/http/server.js",
     "dev": "tsnd --inspect -r tsconfig-paths/register --exit-child --transpile-only --respawn --ignore-watch node_modules src/shared/infra/http/server.ts",
-    "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev",
+    "prisma:generate": "prisma generate --schema=./src/shared/infra/prisma/schema.prisma",
+    "prisma:migrate": "prisma migrate dev --schema=./src/shared/infra/prisma/schema.prisma",
     "test": "jest --detectOpenHandles --forceExit ",
     "lint": "eslint src --max-warnings=0",
     "prepare": "husky install"
@@ -35,7 +35,6 @@
     "prisma": "^3.15.2",
     "reflect-metadata": "^0.1.13",
     "swagger-ui-express": "^4.3.0",
-    "tsconfig-paths": "^3.13.0",
     "tsyringe": "^4.6.0",
     "winston": "^3.7.2"
   },
@@ -44,7 +43,6 @@
     "@babel/core": "^7.18.5",
     "@babel/eslint-parser": "^7.17.0",
     "@babel/eslint-plugin": "^7.16.5",
-    "@babel/node": "^7.18.5",
     "@babel/plugin-proposal-class-properties": "^7.17.12",
     "@babel/plugin-proposal-decorators": "^7.18.2",
     "@babel/preset-env": "^7.18.2",

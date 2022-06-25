@@ -1,9 +1,9 @@
 import { celebrate } from 'celebrate';
 import { Router } from 'express';
 
-import { CreateGameController } from '@modules/games/useCases/createGame/CreateGameController';
-import { ListGamesController } from '@modules/games/useCases/listGames/ListGamesController';
-import { createValidator } from '@shared/validator';
+import { CreateGameController } from '../../../../modules/games/useCases/createGame/CreateGameController';
+import { ListGamesController } from '../../../../modules/games/useCases/listGames/ListGamesController';
+import { createValidator } from '../../../validator';
 
 const registerGame = new CreateGameController();
 const listGames = new ListGamesController();

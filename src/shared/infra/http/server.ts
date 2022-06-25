@@ -5,7 +5,7 @@ import express, { NextFunction, Request, Response } from 'express';
 import { AppError } from '../../errors/AppError';
 import { router } from './routes';
 
-import '@shared/container/index';
+import '../../container';
 
 const port = process.env.PORT || 5000;
 

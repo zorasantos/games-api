@@ -17,7 +17,7 @@ services:
     build: .
     container_name: games_api
     ports:
-      - 3000:3000
+      - 5000:5000
     volumes:
       - .:/usr/app
     links:

@@ -1,7 +1,8 @@
 import { inject, injectable } from 'tsyringe';
 
 import { Game } from '@modules/games/infra/entities/Game';
-import { IGameRepository } from '@modules/games/repositories/IGameRepository';
+
+import { IGameRepository } from '../../repositories/IGameRepository';
 
 @injectable()
 class ListGamesUseCase {

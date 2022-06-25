@@ -1,8 +1,9 @@
 import { inject, injectable } from 'tsyringe';
 
 import { ICreateGameDTO } from '@modules/games/dtos/ICreateGameDTO';
-import { IGameRepository } from '@modules/games/repositories/IGameRepository';
-import Logger from '@shared/logger';
+
+import Logger from '../../../../shared/logger';
+import { IGameRepository } from '../../repositories/IGameRepository';
 
 @injectable()
 class CreateGameUseCase {

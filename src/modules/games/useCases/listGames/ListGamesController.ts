@@ -1,8 +1,7 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
-import Logger from '@shared/logger';
-
+import Logger from '../../../../shared/logger';
 import { ListGamesUseCase } from './ListGamesUseCase';
 
 class ListGamesController {

@@ -2,8 +2,8 @@ import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
 import { ICreateGameDTO } from '@modules/games/dtos/ICreateGameDTO';
-import Logger from '@shared/logger';
 
+import Logger from '../../../../shared/logger';
 import { CreateGameUseCase } from './CreateGameUseCase';
 
 class CreateGameController {
