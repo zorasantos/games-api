@@ -2,13 +2,12 @@ import 'reflect-metadata';
 import { CelebrateError } from 'celebrate';
 import express, { NextFunction, Request, Response } from 'express';
 
-import { AppError } from '@shared/errors/AppError';
-
+import { AppError } from '../../errors/AppError';
 import { router } from './routes';
 
 import '@shared/container/index';
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 const app = express();
 app.disable('x-powered-by');
